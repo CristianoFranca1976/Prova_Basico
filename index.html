@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cristiano Franca">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="prova, policia, five m, rp, gta5, teste">
+  <meta name="description" content="Quiz sobre curso basico">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+  <title>Prova Basica Policia </title>
+</head>
+<body>
+  <div class="dados">
+      <p class="start">Bem vindo a prova basica para Policia Civil, comeca preenchendo seus dados e apos confirmar seu QRA e se ID sera liberado as perguntas, total de perguntas sao __ e passa com  mais de __ preguntas respondidas, vamos la?</p>
+      <div class="candidato">
+      <input type="text" name="nome" id="nome" placeholder="QRA" required>
+      <input type="text" name="id" id="id" placeholder="ID" required>
+      <button type="button" id="btn-init" onclick="startQuiz()">Comecar</button>
+      </div>
+    </div>
+  <div id="container"> 
+    <header>
+      <h1>Prova Curso Basico - Policia Civil</h1>
+      <div class="pontuacao">
+      <h3>Pontos</h3>
+      <span>0/0</span>
+      </div>
+    </header>
+    <section class="first sections">
+      <div class="questions">
+         <h2>01 - Pergunta de numero 1?</h2>
+      </div>
+      <div class="answers answerA">
+          <label for="A3" class="A1">answer A1<input type="radio" name="A" id="A1" disabled></label>
+          <label for="A2" class="A2">answer A2<input type="radio" name="A" id="A2" disabled></label>
+          <label for="A3" class="A3">answer 03<input type="radio" name="A" id="A3" disabled></label>
+          <label for="A4" class="A4">answer 04<input type="radio" name="A" id="A4" disabled></label>   
+      </div>
+    </section>
+     <footer>
+      <div class="btns">
+        <button type="button" id="previus" onclick="previusFunction()">Previus</button>
+        <button type="button" id="next">Next</button>
+      </div>
+     </footer>
+    
+    <section class="secound sections">
+      <div class="questions">
+         <h2>02 - Pergunta de numero 2?</h2>
+      </div>
+      <div class="answers answerB">
+          <label for="B3" class="B1">answer B1<input type="radio" name="B" id="B3"></label>
+          <label for="A2" class="B2">answer B2<input type="radio" name="B" id="B2"></label>
+          <label for="A3" class="B3">answer B3<input type="radio" name="B" id="B3"></label>
+          <label for="A4" class="B4">answer B4 <input type="radio" name="B" id="B4"></label>   
+      </div>
+    </section>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>
