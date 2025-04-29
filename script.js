@@ -11,7 +11,9 @@ const a4 = document.getElementById("A4");
 const previus = document.getElementById("previus");
 const nome = document.getElementById("nome");
 const id = document.getElementById('id');
-let mensagem = document.querySelector('.mensagem')
+let mensagem = document.querySelector('.mensagem');
+const firstSection = document.querySelector('.first');
+const secoundSection = document.querySelector('.secound');
 
 setTimeout(() => {
   mensagem.textContent = "";
@@ -59,6 +61,11 @@ function startQuiz() {
   
     console.log(`O Nome: ${nomeValue} #ID: ${idvalue} começou o teste!`);
   }
+}
+
+function nextQuestion() {
+  firstSection.style.display = "none";
+  secoundSection.style.display = "flex";
 }
 
 function previusFunction() {
