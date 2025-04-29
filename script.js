@@ -134,7 +134,9 @@ function finishQuiz() {
 
   document.querySelector(".sections").innerHTML = `
     <h2 style="color:white;">Você ${status}!</h2>
-    <p style="color:white;">Pontuação: ${score}/${questions.length}</p>`;
+    <p style="color:white;">Pontuação: ${score}/${questions.length}</p>
+    <button type="button" class="reset" onclick="window.location.reload()">Pagina inicial</button>
+    `;
     btn.style.display = "none";
 }
 
