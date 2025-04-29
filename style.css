@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -7,13 +11,11 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url(/assets/background.jpg);
+  background-image: url(/assets/6076956.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
-
 #container {
   width: 700px;
   height: 600px;
@@ -24,17 +26,16 @@ body {
   gap: 30px;
   opacity: 0.3;
 }
-
 /* dados */
 .dados {
-  border: 1px solid rgb(252, 252, 252);
-  max-width: 300px;
+  border: 1px solid white;
+  max-width: 400px;
   padding: 30px;
   border-radius: 10px;
   position: absolute;
   z-index: 1;
   margin: 150px;
-  background-image: url(/assets/background.jpg);
+  background-image: url(/assets/dados.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -43,17 +44,43 @@ body {
 .candidato {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 input[type="text"] {
   padding: 5px;
   border-radius: 10px;
   border: none;
+  max-width: 200px;
+  text-indent: 10px;
 }
-
+input[type="text"]::placeholder {
+    color: black;
+    text-indent: 10px;
+}
+#btn-init {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 5px 15px;
+  color: white;
+  background-color: black;
+  font-family: "Single Day", cursive;
+  font-size: 2vh;
+}
+.start {
+  color: white;
+  font-family: "Single Day", cursive;
+  font-size: 3vh;
+}
+.mensagem {
+  color: rgb(252, 3, 3);
+  font-size: 2vh;
+  text-shadow: 2px 2px 35px rgb(255, 5, 5);
+  background-color: white;
+}
 /* header */
 header {
-  border: 1px solid black;
+  border: 1px solid white;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   width: 100%;
@@ -61,12 +88,16 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-
 h1 {
   width: 100%;
   text-align: center;
+  color: white;
+  font-family: "Merienda", cursive;
 }
-
+h2 {
+  color: white;
+  font-family: "Cabin Sketch", sans-serif;
+}
 .pontuacao {
   display: flex;
   align-items: center;
@@ -74,11 +105,13 @@ h1 {
   flex-direction: column;
   margin-right: 10px;
 }
-
 h3 {
   margin: 0;
+  color: white;
 }
-
+span {
+  color: white;
+}
 /* Sections */
 .sections {
   width: 100%;
@@ -94,7 +127,7 @@ h3 {
 }
 
 .questions {
-  border: 1px solid black;
+  border: 1px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +155,7 @@ input[type="radio"] {
   height: 20px;
   -webkit-appearance: none;
   appearance: none;
-  background-color: grey;
+  background-color: white;
   border-radius: 50%;
 }
 
@@ -133,12 +166,14 @@ input[type="radio"]:checked {
 }
 
 label {
-  border: 1px solid black;
+  border: 1px solid white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
   width: auto;
+  color: white;
+  font-family: "Cabin Sketch", sans-serif;
 }
 
 /* footer */
@@ -146,7 +181,7 @@ footer {
   width: 100%;
 }
 .btns {
-  border: 1px solid black;
+  border: 1px solid white;
   display: flex;
   align-items: center;
   justify-content: space-between;
