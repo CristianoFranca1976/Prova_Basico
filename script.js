@@ -1,77 +1,172 @@
-// Config btn-init
+
 
 const btnInit = document.getElementById("btn-init");
 const body = document.querySelector('body');
 const dados = document.querySelector(".dados");
 const container = document.getElementById("container");
-const a1 = document.getElementById("A1");
-const a2 = document.getElementById("A2");
-const a3 = document.getElementById("A3");
-const a4 = document.getElementById("A4");
 const previus = document.getElementById("previus");
+const next = document.getElementById("next");
 const nome = document.getElementById("nome");
 const id = document.getElementById('id');
+const btn = document.querySelector('.btns');
 let mensagem = document.querySelector('.mensagem');
-const firstSection = document.querySelector('.first');
-const secoundSection = document.querySelector('.secound');
+let spanScore = document.querySelector("span");
 
-setTimeout(() => {
-  mensagem.textContent = "";
-}, 5000);
+let currentQuestion = 0;
+let score = 0;
+
+const questions = [
+  { question: "Pergunta 1?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
+  { question: "Pergunta 2?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
+  { question: "Pergunta 3?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
+  { question: "Pergunta 4?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
+  { question: "Pergunta 5?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
+  { question: "Pergunta 6?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
+  { question: "Pergunta 7?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
+  { question: "Pergunta 8?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
+  { question: "Pergunta 9?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
+  { question: "Pergunta 10?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
+  { question: "Pergunta 11?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
+  { question: "Pergunta 12?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
+  { question: "Pergunta 13?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
+  { question: "Pergunta 14?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
+  { question: "Pergunta 15?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
+  { question: "Pergunta 16?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
+  { question: "Pergunta 17?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
+  { question: "Pergunta 18?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
+  { question: "Pergunta 19?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
+  { question: "Pergunta 20?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
+];
+
+// ... (todas as variáveis continuam como estavam)
 
 function startQuiz() {
+  const nomeValue = nome.value;
+  const idValue = id.value;
 
-  let nomeValue = nome.value;
-  let idvalue = id.value;
+  if (nomeValue.trim() === "" || idValue.trim() === "" || isNaN(idValue)) {
+    mensagem.textContent = "Preencha QRA e ID corretamente!";
+    nome.style.border = idValue.trim() === "" ? "1px solid red" : "1px solid transparent";
+    id.style.border = nomeValue.trim() === "" ? "1px solid red" : "1px solid transparent";
+    return;
+  }
 
-  if (nomeValue.trim() === "" || idvalue.trim() === "" || isNaN(idvalue)) {
-    // Resetando estilos
-    nome.style.border = "1px solid transparent";
-    id.style.border = "1px solid transparent";
-  
-    if (nomeValue.trim() === "" && idvalue.trim() === "") {
-      nome.style.border = "1px solid red";
-      id.style.border = "1px solid red";
-      mensagem.textContent = "Todos os campos devem ser preenchidos!";
-      console.log("Todos os campos devem ser preenchidos!");
-    } else if (nomeValue.trim() === "") {
-      nome.style.border = "1px solid red";
-      mensagem.textContent = "O campo QRA deve ser preenchido!";
-      console.log("O campo QRA deve ser preenchido!");
-    } else if (idvalue.trim() === "" || isNaN(idvalue)) {
-      id.style.border = "1px solid red";
-      mensagem.textContent = "O campo ID deve ser preenchido com um número válido!";
-      console.log("O campo ID deve ser preenchido com um número válido!");
-    }
-  
-  } else {
-    // Tudo certo, prosseguir
-    btnInit.style.display = "none";
-    container.style.opacity = "1";
-    dados.style.display = "none";
-  
-    // Habilita botões
-    a1.removeAttribute("disabled");
-    a2.removeAttribute("disabled");
-    a3.removeAttribute("disabled");
-    a4.removeAttribute("disabled");
-  
+  btnInit.style.display = "none";
+  container.style.opacity = "1";
+  dados.style.display = "none";
+
+  showQuestion();
+}
+
+function showQuestion() {
+  const section = document.querySelector(".sections");
+  section.innerHTML = "";
+
+  const q = questions[currentQuestion];
+
+  const qDiv = document.createElement("div");
+  qDiv.className = "questions";
+  qDiv.innerHTML = `<h2>${String(currentQuestion + 1).padStart(2, "0")} - ${q.question}</h2>`;
+
+  const aDiv = document.createElement("div");
+  aDiv.className = "answers";
+
+  q.options.forEach((option, idx) => {
+    const label = document.createElement("label");
+    label.innerHTML = `
+      ${option}
+      <input type="radio" name="question" value="${idx}">
+    `;
+    aDiv.appendChild(label);
+  });
+
+  section.appendChild(qDiv);
+  section.appendChild(aDiv);
+
+  // Atualiza a pontuação
+  spanScore.textContent = `${score}/${questions.length}`;
+
+  // Atualiza botão "previus"
+  if (currentQuestion === 0) {
     previus.textContent = "Reset";
-    previus.style.opacity = 1;
-  
-    console.log(`O Nome: ${nomeValue} #ID: ${idvalue} começou o teste!`);
+    previus.onclick = previusFunction;
+  } else {
+    previus.textContent = "Anterior";
+    previus.onclick = previousQuestion;
   }
 }
 
 function nextQuestion() {
-  firstSection.style.display = "none";
-  secoundSection.style.display = "flex";
+  const selected = document.querySelector('input[name="question"]:checked');
+  if (!selected) {
+    alert("Selecione uma resposta.");
+    return;
+  }
+
+  if (parseInt(selected.value) === questions[currentQuestion].correct) {
+    score++;
+  }
+
+  currentQuestion++;
+
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    finishQuiz();
+  }
+}
+
+function previousQuestion() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    showQuestion();
+  }
+}
+
+function finishQuiz() {
+  const nomeValue = nome.value;
+  const idValue = id.value;
+  const status = score >= 14 ? "FOI APROVADO ✅ Você Já PODE ESTAR SOLICITANDO O Prático" : "FOI REPROVADO ❌ Você tem que fazer mais de 14 pontos para passar";
+
+  alert(`Você ${status}! Pontuação: ${score}/${questions.length}`);
+
+  sendToDiscord(nomeValue, idValue, score, status);
+
+  document.querySelector(".sections").innerHTML = `
+    <h2 style="color:white;">Você ${status}!</h2>
+    <p style="color:white;">Pontuação: ${score}/${questions.length}</p>`;
+    btn.style.display = "none";
+}
+
+function sendToDiscord(nome, id, score, status) {
+  const webhookUrl = "SUA_WEBHOOK_AQUI";
+
+  const data = {
+    username: "Resultado da Prova",
+    embeds: [
+      {
+        title: "📋 Resultado da Prova Policial",
+        color: status.includes("APROVADO") ? 3066993 : 15158332,
+        fields: [
+          { name: "👤 QRA", value: nome, inline: true },
+          { name: "🆔 ID", value: id, inline: true },
+          { name: "🎯 Pontuação", value: `${score}/20`, inline: true },
+          { name: "📌 Status", value: status, inline: false },
+        ],
+        timestamp: new Date(),
+      },
+    ],
+  };
+
+  fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).catch(err => console.error("Erro ao enviar para o Discord", err));
 }
 
 function previusFunction() {
-  if (previus.textContent = "Reset") {
-    window.location.reload()
-  }
+  window.location.reload();
 }
 
 

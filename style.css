@@ -108,9 +108,11 @@ h2 {
 h3 {
   margin: 0;
   color: white;
+  opacity: 0;
 }
 span {
   color: white;
+  opacity: 0;
 }
 /* Sections */
 .sections {
@@ -191,5 +193,5 @@ footer {
   border-bottom-right-radius: 15px;
 }
 #previus {
-  opacity: 0;
+  opacity: 1;
 }
