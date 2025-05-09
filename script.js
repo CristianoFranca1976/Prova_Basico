@@ -16,26 +16,26 @@ let currentQuestion = 0;
 let score = 0;
 
 const questions = [
-  { question: "Pergunta 1?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
-  { question: "Pergunta 2?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
-  { question: "Pergunta 3?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
-  { question: "Pergunta 4?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
-  { question: "Pergunta 5?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
-  { question: "Pergunta 6?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
-  { question: "Pergunta 7?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
-  { question: "Pergunta 8?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
-  { question: "Pergunta 9?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
-  { question: "Pergunta 10?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
-  { question: "Pergunta 11?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
-  { question: "Pergunta 12?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
-  { question: "Pergunta 13?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
-  { question: "Pergunta 14?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
-  { question: "Pergunta 15?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
-  { question: "Pergunta 16?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
-  { question: "Pergunta 17?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 0 },
-  { question: "Pergunta 18?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 1 },
-  { question: "Pergunta 19?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 2 },
-  { question: "Pergunta 20?", options: ["Opção A", "Opção B", "Opção C", "Opção D"], correct: 3 },
+  { question: "Qual viatura foi usada no vídeo para a abordagem?", options: ["Speed", "Corolla", "Trail Brazer", "Spin"], correct: 0 },
+  { question: "Qual o valor da multa do prisioneiro com o ID: 79817?", options: ["R$ 400.000,00", "R$ 300.000,00", "R$ 200.000,00", "R$ 250.000,00"], correct: 3 },
+  { question: "Qual é o nome do cidadão abordado com um chapéu?", options: ["Carlos", "Augusto", "Daniel", "Danilo"], correct: 2 },
+  { question: "Quantas unidades GTMS estavam patrulhando no vídeo?", options: ["Três", "Quatro", "Uma", "Duaas"], correct: 0 },
+  { question: "No vídeo, quantos segundos a lei de Miranda foi lida?", options: ["30 Segundos", "25 Segundos", "20 Segundos", "24 Segundos"], correct: 3 },
+  { question: "Qual é o número do passaporte do cidadão que atirou contra guarnição?", options: ["38756", "38757", "38755", "38777"], correct: 1 },
+  { question: "Qual é a cor da camisa do advogado falso?", options: ["Azul", "Branca", "Preta", "Vermelha"], correct: 0 },
+  { question: "Qual os artigos que o cidadão foi preso?", options: ["Artigos: 74, 40, 44", "Artigos: 73, 44, 44", "Artigos: 74, 40, 43", "Artigos: 74, 39, 44"], correct: 3 },
+  { question: "Quando eu pego o cidadão em H?", options: ["Sempre que eu quiser.", "Somente se necessário.", "Nunca.", "Todas as três opções."], correct: 1 },
+  { question: "Qual o comando para verificar se o Advogado possui a carteira da OAB?", options: ["VER OAB", "OAB", "VEROAB", "Todas as opções estão corretas."], correct: 2 },
+  { question: "Quantos códigos Q aparecem no vídeo?", options: ["15", "17", "13", "11"], correct: 2 },
+  { question: "Quando devo dar ao réu principal no atenuantes?", options: ["Somente na presença de um advogado.", "Depois de ter olhado no MDT", "Se ele não tem desacato.", "Quando o cidadão fala."], correct: 0 },
+  { question: "Eu posso patrulhar sozinho?", options: ["Apenas se nao tiver ninguém na DP", "Sempre", "Nunca", "Todas as opções estão corretas."], correct: 2 },
+  { question: "Qual a cor do bermuda do cidadão preso?", options: ["Preta", "Amarela", "Verde", "Branca"], correct: 3 },
+  { question: "Quando a lei de Miranda é proferida?", options: ["Após colocar o cidadão na viatura.", "Na DP.", "Na frente de um Advogado", "Todas as três opções estão erradas."], correct: 0 },
+  { question: "O que o suspeito tinha dentro da Van?", options: ["Armas", "Cordas", "Medicamentos", "Muni"], correct: 2 },
+  { question: "Ao abordar os suspeitos, quantos policiais estavam no viatura?", options: ["3 Policiais", "2 Policiais", "5 Policias", "4 Policiais"], correct: 3 },
+  { question: "Qual é a cor da letra do código 7 de patrulha ?", options: ["Verde", "Vermelha", "Branca", "Amarelo"], correct: 3 },
+  { question: "O que o P1 deve verificar antes de começar o código zero?", options: ["Todos já está na viatura.", "Se todos estiverem usando cinto e o veículo trancado.", "Tenho uma arma em minhas mãos.", "Já bati o ponto."], correct: 1 },
+  { question: "Qual o curso dado antes do curso de modulação?", options: ["Prisional", "Codigo Q", "Acompanhamento", "Abordagem"], correct: 2 },
 ];
 
 // ... (todas as variáveis continuam como estavam)
@@ -126,7 +126,7 @@ function previousQuestion() {
 function finishQuiz() {
   const nomeValue = nome.value;
   const idValue = id.value;
-  const status = score >= 14 ? "FOI APROVADO ✅ Você Já PODE ESTAR SOLICITANDO O Prático" : "FOI REPROVADO ❌ Você tem que fazer mais de 14 pontos para passar";
+  const status = score >= 14 ? "FOI APROVADO ✅ Você Já pode estar solicitando o curso Prático" : "FOI REPROVADO ❌ Você tem que fazer mais de 14 pontos para passar";
 
   alert(`Você ${status}! Pontuação: ${score}/${questions.length}`);
 
@@ -141,7 +141,7 @@ function finishQuiz() {
 }
 
 function sendToDiscord(nome, id, score, status) {
-  const webhookUrl = "SUA_WEBHOOK_AQUI";
+  const webhookUrl = "https://discord.com/api/webhooks/1370384172924932177/CjhCgjrHkLiSozXMRG-MCZd693boqGfzUBG5BTDtC2Uv5pCxyqKh3YKOC2-_p5YarrUy";
 
   const data = {
     username: "Resultado da Prova",

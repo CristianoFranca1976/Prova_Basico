@@ -29,7 +29,6 @@ body {
 /* dados */
 .dados {
   border: 1px solid white;
-  max-width: 400px;
   padding: 30px;
   border-radius: 10px;
   position: absolute;
@@ -107,6 +106,7 @@ h1 {
 h2 {
   color: white;
   font-family: "Cabin Sketch", sans-serif;
+  padding: 0 10px;
 }
 .pontuacao {
   display: flex;
@@ -187,7 +187,30 @@ label {
   color: white;
   font-family: "Cabin Sketch", sans-serif;
 }
+nav {
+  display: flex;
+  width: 100%;
 
+}
+.copyright {
+  border: 1px solid white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: white;
+  width: 100%;
+  font-family: "Cabin Sketch", sans-serif;
+}
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  width: 42px;
+}
 /* footer */
 footer {
   width: 100%;
