@@ -141,7 +141,7 @@ function finishQuiz() {
 }
 
 function sendToDiscord(nome, id, score, status) {
-  const webhookUrl = "https://discord.com/api/webhooks/1370384172924932177/CjhCgjrHkLiSozXMRG-MCZd693boqGfzUBG5BTDtC2Uv5pCxyqKh3YKOC2-_p5YarrUy";
+  const webhookUrl = "https://prova-basico.vercel.app/api/sendWebhook";
 
   const data = {
     username: "Resultado da Prova",
